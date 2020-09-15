@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cross PDF</title>
+
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/unicons.css">
+
+    <!-- MAIN STYLE -->
+    <link rel="stylesheet" href="./static/css/tooplate-style.css">
+
+    <!-- PDF FILE SIDE WISE -->
+    <style>
+      iframe { 
+        /* height: 30rem; 
+        border: 1rem solid rgba(0,0,0,.1);  */
+        height: 30rem;
+        border: 0.5rem solid rgba(0,0,0,.1);
+        width: 40rem;
+        margin-left: -100px;
+        margin-top: -40px;
+      }
+    </style>
+
+    <script type="text/javascript" src="./static/search_module/keyboard.js" charset="UTF-8"></script>
+    <link rel="stylesheet" type="text/css" href="./static/search_module/keyboard.css">
+
+  </head>
+  <body>
+
+    <!-- MENU -->
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href=""><i class='uil uil-file-search-alt'></i> CROSS PDF </a>
+                <ul class="navbar-nav ml-lg-auto">
+                    <div class="ml-lg-4">
+                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
+                        <i class="color-mode-icon"></i>
+                        Color mode
+                      </div>
+                    </div>
+                </ul>
+        </div>
+    </nav>
+
+    <!-- ABOUT -->
+    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                    <div class="about-text">
+                        <small class="small-text">Welcome, process your PDF/Images containing</span></small>
+                        <h1 class="animated animated-text">
+                            <span class="mr-2">Languages</span>
+                                <div class="animated-info">
+                                    <span class="animated-item">English</span>
+                                    <span class="animated-item">Telugu</span>
+                                    <span class="animated-item">Urdu</span>
+                                </div>
+                        </h1>
+
+                        <p>Upload File to generate Searchable PDF</p>
+                        
+                        <form method = "POST" enctype = "multipart/form-data">
+                          <input type = "file" name = "file" class="btn mr-lg-2 custom-btn" />
+                          <input type = "submit" class="btn custom-btn custom-btn-bg custom-btn-link" value="Upload"/>
+                        </form>
+                        <div class="result">
+                          {% if extracted_text %}
+                              <!-- Download the output file OR Load the File in our server-->
+                              <p>{{extracted_text}} <a href="/static/output/output.pdf" download>Download the PDF</a> or <a href="#" onclick="location.reload(true);">Open the PDF</a></p>
+                              <!-- Virtual Keyboard -->
+                              <input type="text" value="" class="keyboardInput">
+                              
+                              <p class="microsoft_lang">If you wish to use Physical Keyboard <a href="https://support.microsoft.com/en-in/help/14236/windows-language-packs" target="_blank">Install Language in Windows</a>
+                          {% else %}
+                              <p>Supported Format <b>PDF, JPG, PNG</b></p>
+                          {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="about-image svg">
+                        <!-- <img src="./static/images/undraw/undraw_upload_87y9.svg" class="img-fluid" alt="svg image"> -->
+                        {% if extracted_text %} 
+                            <!-- Show PDF after rendering-->
+                            <!-- <div id="example1"></div> -->
+                            <iframe id="pdfImage" class="pdf" src="./static/output/output.pdf"></iframe>
+                        {% else %}
+                            <!-- show image before rendering -->
+                            <img src="./static/images/undraw/undraw_upload_87y9.svg" class="img-fluid" alt="svg image">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-12 footer">                                
+                  <p class="copyright-text text-center">Copyright &copy; 2020 . Designed by Team AI Space</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="./static/js/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/custom.js"></script>
+    <!-- PDF FILE DISPLAY SCRIPT -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
+    <script>PDFObject.embed("./static/output/output.pdf", "#example1");</script> -->
+  </body>
+</html>
