@@ -74,11 +74,9 @@
                         <div class="result">
                           {% if extracted_text %}
                               <!-- Download the output file OR Load the File in our server-->
-                              <p>{{extracted_text}} <a href="/static/output/output.pdf" download>Download the PDF</a> or <a href="#" onclick="location.reload(true);">Open the PDF</a></p>
+                              <p>{{extracted_text}} <a href="/static/output/output.pdf" download>Download the PDF</a></p>
                               <!-- Virtual Keyboard -->
-                              <input type="text" value="" class="keyboardInput">
-                              
-                              <p class="microsoft_lang">If you wish to use Physical Keyboard <a href="https://support.microsoft.com/en-in/help/14236/windows-language-packs" target="_blank">Install Language in Windows</a>
+                              <input type="text" value="" class="keyboardInput">                          
                           {% else %}
                               <p>Supported Format <b>PDF, JPG, PNG</b></p>
                           {% endif %}
@@ -101,7 +99,7 @@
                 </div>
 
                 <div class="col-lg-12 col-12 footer">                                
-                  <p class="copyright-text text-center">Copyright &copy; 2020 . Designed by Team AI Space</p>
+                  <p class="copyright-text text-center">Copyright &copy; 2020 . Designed & Developed by <a href="www.akashsahu.com">Akash Sahu</a></p>
                 </div>
 
             </div>
