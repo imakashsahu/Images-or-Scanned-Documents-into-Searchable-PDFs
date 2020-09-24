@@ -74,9 +74,7 @@
                         <div class="result">
                           {% if extracted_text %}
                               <!-- Download the output file OR Load the File in our server-->
-                              <p>{{extracted_text}} <a href="/static/output/output.pdf" download>Download the PDF</a></p>
-                              <!-- Virtual Keyboard -->
-                              <input type="text" value="" class="keyboardInput">                          
+                              <p>{{extracted_text}} <a href="/static/output/output.pdf" download>Download the PDF</a></p>                          
                           {% else %}
                               <p>Supported Format <b>PDF, JPG, PNG</b></p>
                           {% endif %}
